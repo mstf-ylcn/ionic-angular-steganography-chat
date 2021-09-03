@@ -37,6 +37,8 @@ ionic cap sync
    <video controls muted  height="250" width="300" preload="metadata" loop>
             <source src="media/monitor.mp4">
         </video>
+        
+        [![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://user-images.githubusercontent.com/83976212/132053856-186c5482-c817-4590-9341-24718f0f92ff.mp4)
 <p float="left">
 <video loop>
   <source src="https://user-images.githubusercontent.com/83976212/132053856-186c5482-c817-4590-9341-24718f0f92ff.mp4" >
