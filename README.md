@@ -33,29 +33,31 @@ npm install cordova-plugin-file
 npm install @ionic-native/file
 ionic cap sync
 
+   <video controls muted  height="250" width="300" preload="metadata" loop>
+            <source src="media/monitor.mp4">
+        </video>
 
-
-<video width="1024" height="768" controls>
-  <source src="https://user-images.githubusercontent.com/83976212/132053856-186c5482-c817-4590-9341-24718f0f92ff.mp4" type="video/mp4">
+<video loop>
+  <source src="https://user-images.githubusercontent.com/83976212/132053856-186c5482-c817-4590-9341-24718f0f92ff.mp4" >
 
 </video>
 
-<video width="1024" height="768" controls>
+<video  loop>
   <source src="https://user-images.githubusercontent.com/83976212/132053864-8892a20e-b196-4c8e-925e-c87541520b7e.mp4" type="video/mp4">
 
 </video>
 
-<video width="1024" height="768" controls>
+<video loop>
   <source src="https://user-images.githubusercontent.com/83976212/132053873-52f9dd58-a0b5-4ed2-afb0-127c13b97167.mp4" type="video/mp4">
 
 </video>
 
-<video width="1024" height="768" controls>
+<video  loop>
   <source src="https://user-images.githubusercontent.com/83976212/132053877-871ad0cc-d9ae-4cbc-8958-dfb08c577cc6.mp4" type="video/mp4">
 </video>
 
 
-<video width="1024" height="768" controls>
+<video controls>
   <source src="https://user-images.githubusercontent.com/83976212/132053880-5a6a1d2b-4b3b-4a32-ba85-d82c31efafe7.mp4" type="video/mp4">
 
 </video>
