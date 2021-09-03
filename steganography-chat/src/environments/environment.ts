@@ -5,13 +5,7 @@
 export const environment = {
   production: false,
    firebaseConfig : {
-    apiKey: "AIzaSyCLIMexYFWCwF8YCfrf3U9ukpYMOaK8S4M",
-    authDomain: "onlinechat-3670a.firebaseapp.com",
-    databaseURL: "https://onlinechat-3670a-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "onlinechat-3670a",
-    storageBucket: "onlinechat-3670a.appspot.com",
-    messagingSenderId: "665307756154",
-    appId: "1:665307756154:web:afba82f060c405e3322dc3"
+//your firebase config
   }
 };
 
