@@ -77,28 +77,6 @@ ionic cap sync
 
 
 
-
-
-
-
-
-
-
-
-
-<br><br>
-<br>
-
-<p float="left">
-<img src="https://user-images.githubusercontent.com/83976212/125310460-454a3980-e33b-11eb-92c3-53cbf3d6befd.gif"  width="230" />
-
-  <img src="https://user-images.githubusercontent.com/83976212/125311547-28623600-e33c-11eb-8619-70f3b609adf0.gif"  width="230" />
-
-  <img src="https://user-images.githubusercontent.com/83976212/125311560-2bf5bd00-e33c-11eb-87f2-1e15aad7230b.gif"  width="230" />
-
-
-</p>
-
 <br><br>
 <p float="left">
 <img src="https://user-images.githubusercontent.com/83976212/132053619-144fd56a-b250-4dcc-87d3-e4e29530f156.jpg"  width="230" />
