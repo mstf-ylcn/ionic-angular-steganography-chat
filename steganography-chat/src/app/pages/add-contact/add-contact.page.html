@@ -1,0 +1,51 @@
+<ion-header>
+  
+  <ion-item   lines="none" style="--padding-start:0;--padding-end:0;--inner-padding-start:0;--inner-padding-end:0;--background:#0d2852;">
+
+    <ion-fab-button (click)="back()" style="--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;" > 
+    <ion-icon style="font-size:32px;color: whitesmoke;" name="chevron-back-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-title  style="color: whitesmoke;">Add contact</ion-title>
+
+  <ion-fab-button (click)="addContact()" style="--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;" > 
+    <ion-icon  style="font-size:30px;color: whitesmoke;" name="checkmark-sharp"></ion-icon>
+  </ion-fab-button>
+</ion-item>
+</ion-header>
+
+
+<ion-content>
+<!-- <br> -->
+<form [formGroup]="form">
+  <!-- <ion-icon name="person"  class="icon"></ion-icon>
+  <ion-item class="singup_item">
+    <ion-label  style="font-size: 20px;" position="floating">Name</ion-label>
+  <ion-input  formControlName="name"   text="text" maxlength="40"></ion-input>
+  </ion-item>
+  <ion-text style="margin-left: 40px;" *ngIf="!form.get('name').valid && form.get('name').touched">
+    <ion-text color="danger" *ngIf="form.get('name').hasError('required')">
+      ⓘ Please enter your name!
+    </ion-text>
+   <ion-text color="danger" *ngIf="!form.get('name').hasError('required') && form.get('name').hasError('minlength')">
+    ⓘ Please enter your full name!
+   </ion-text>
+   </ion-text> -->
+
+<!-- <br> -->
+   <ion-icon name="mail"  class="icon"></ion-icon>
+  <ion-item class="singup_item">
+    <ion-label style="font-size: 20px;" position="floating">E-mail</ion-label>
+  <ion-input  formControlName="email"  type="email" required></ion-input>
+  </ion-item>
+  <ion-text style="margin-left: 40px;" *ngIf="!form.get('email').valid && form.get('email').touched">
+    <ion-text color="danger" *ngIf="form.get('email').hasError('required')">
+      ⓘ Please enter your e-mail address!
+    </ion-text>
+   <ion-text color="danger" *ngIf="!form.get('email').hasError('required')  && form.get('email').hasError('pattern') ">
+    ⓘ Please enter a valid e-mail address!
+   </ion-text>
+  </ion-text>
+</form>
+
+
+</ion-content>

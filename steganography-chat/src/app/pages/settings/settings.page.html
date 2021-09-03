@@ -1,0 +1,67 @@
+<ion-header>
+  
+  <ion-item   lines="none" style="--padding-start:0;--padding-end:0;--inner-padding-start:0;--inner-padding-end:0;--background:#0d2852;">
+    <ion-fab-button (click)="back()"  style="--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;" > 
+    <ion-icon  style="font-size:32px;color: whitesmoke;" name="chevron-back-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-title style="color: whitesmoke;">Settings</ion-title>
+</ion-item>
+</ion-header>
+
+<ion-content>
+<br>
+
+
+
+  <ion-item (click)="editProfile()" class="ion-activatable ripple-parent">
+    <ion-icon style="font-size: 32px;" name="person-sharp"></ion-icon>
+    <ion-label style="font-size: 18px;margin-left: 5px;">
+      Edit profile
+    </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+
+  </ion-item>
+
+<br>
+
+<ion-item (click)="accountSettings()" class="ion-activatable ripple-parent">
+  <ion-icon style="font-size: 32px;" name="settings-sharp"></ion-icon>
+  <ion-label style="font-size: 18px;margin-left: 5px;">
+    Account settings
+  </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+
+</ion-item>
+<br>
+
+
+<ion-item class="ion-activatable ripple-parent">
+  <ion-icon style="font-size: 32px;" name="lock-closed"></ion-icon>
+  <ion-label style="font-size: 18px;margin-left: 5px;">
+    Privacy
+  </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+
+</ion-item>
+<br>
+
+  <ion-item >
+    <ion-icon style=" color:rgb(240, 111, 6);opacity: 1; font-size: 32px;" *ngIf="mode" name="sunny"></ion-icon>
+    <ion-icon style=" color:black;opacity: 1;font-size: 32px; " *ngIf="!mode" name="moon"></ion-icon>
+    <ion-label style="font-size: 18px;margin-left: 5px;">Dark mode</ion-label>
+    <ion-toggle color="medium" (ionChange)="darkmode($event)" [checked]="check" ></ion-toggle>
+ 
+  </ion-item>
+  
+
+<br>
+  <ion-item (click)="logOut()" class="ion-activatable ripple-parent">
+    <ion-icon style="font-size: 32px;" name="log-out-sharp"></ion-icon>
+    <ion-label style="font-size: 18px;margin-left: 5px;">
+      Logout
+    </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+
+  </ion-item>
+
+</ion-content>

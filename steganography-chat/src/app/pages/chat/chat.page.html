@@ -1,0 +1,242 @@
+<ion-header >
+  <div *ngIf="user.selectMessagesArray.length==0">
+
+  <ion-item *ngFor="let item of chatUserData" lines="none" style="--padding-start:0;--padding-end:0;--inner-padding-start:0;--inner-padding-end:0;--background:#0d2852;">
+
+    <ion-fab-button  (click)="back()"  style="height: 40px;--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;" > 
+    <ion-icon  style="font-size:32px;color: whitesmoke;" name="chevron-back-outline"></ion-icon>
+  </ion-fab-button>
+
+    <ion-item (click)="profil()"  class="ion-activatable ripple-parent"  lines="none" style="--padding-start:0;--background:#0d2852;width: 100%;">
+     <ion-ripple-effect></ion-ripple-effect>
+  <ion-avatar style="height: 48px;width: 48px;margin-left: 5px;" >
+    <img  [src]="item.pp">
+  </ion-avatar>
+  <ion-label style="margin-left: -10px;">
+  <ion-title style="font-size: 14px;color: whitesmoke;"  >{{item.email}} </ion-title> 
+  <span *ngIf="item.status=='Online'">
+    <p  style="font-size: 12px;margin-left: 19px;color: whitesmoke;"> Online </p>
+  </span>
+
+  <span *ngIf="item.status!='Online'">
+
+  <p *ngIf="item.status.slice(0,10)!=date.slice(0,10)" style="font-size: 12px;margin-left: 19px;color: whitesmoke;"> {{item.status.slice(11,16)}}   {{item.status.slice(8,10)}}-{{item.status.slice(5,7)}}-{{item.status.slice(2,4)}} </p>
+  <p *ngIf="item.status.slice(0,10)==date.slice(0,10)" style="font-size: 12px;margin-left: 19px;color: whitesmoke;"> {{item.status.slice(11,16)}}</p>
+</span>
+
+</ion-label>
+    </ion-item>
+
+<ion-fab-button (click)="presentPopover($event)"  class="ion-activatable ripple-parent" mode="ios"   style="margin-right:10px;height: 100%;width: 45px;margin-left: 50px;--box-shadow:0;--border-radius:0;--background:#0d2852;--background-activated:#0d2852;" >
+<ion-icon  style="font-size:28px;color: rgb(223, 221, 221);" name="ellipsis-vertical"></ion-icon>
+<ion-ripple-effect></ion-ripple-effect>
+</ion-fab-button>
+
+</ion-item>
+</div>
+
+<div  *ngIf="user.selectMessagesArray.length!=0">
+
+
+  <ion-item  lines="none" style="--padding-start:0;--padding-end:0;--inner-padding-start:0;--inner-padding-end:0;--background:#0d2852;">
+
+    <ion-fab-button  (click)="unSelect()"  style="height: 40px;--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;" > 
+    <ion-icon  style="font-size:32px;color: whitesmoke;" name="chevron-back-outline"></ion-icon>
+  </ion-fab-button>
+
+    <ion-item   class="ion-activatable ripple-parent"  lines="none" style="--padding-start:0;--background:#0d2852;width: 100%;">
+     <ion-ripple-effect></ion-ripple-effect>
+
+     <ion-avatar style="height: 48px;width: 48px;margin-left: 5px;" >
+    </ion-avatar>
+     <ion-label style="margin-left: -50px;">
+      <ion-title style="font-size: 18px;color: whitesmoke;"  >{{user.selectMessagesArray.length}} </ion-title> 
+      </ion-label>
+
+    </ion-item>
+
+    <ion-fab-button (click)="copyText()"  class="ion-activatable ripple-parent"   style="z-index:999;right:85px;position:absolute;height: 100%;width: 45px;--box-shadow:0;--border-radius:0;--background:#0d2852;--background-activated:#0d2852;" >
+      <ion-icon  style="font-size:24px;color: rgb(223, 221, 221);" name="copy"></ion-icon>
+      <ion-ripple-effect></ion-ripple-effect>
+      </ion-fab-button>
+
+    <ion-fab-button (click)="presentActionSheet()"   class="ion-activatable ripple-parent"   style="right:40px;position:absolute;height: 100%;width: 45px;--box-shadow:0;--border-radius:0;--background:#0d2852;--background-activated:#0d2852;" >
+      <ion-icon  style="font-size:24px;color: rgb(223, 221, 221);" name="trash"></ion-icon>
+      <ion-ripple-effect></ion-ripple-effect>
+      </ion-fab-button>
+
+
+<ion-fab-button (click)="pressPopover($event)" (pan)="popOverPan()"  (panend)="unShiftPopover($event)"  class="ion-activatable ripple-parent" mode="ios"   style="margin-right:10px;height: 100%;width: 45px;margin-left: 50px;--box-shadow:0;--border-radius:0;--background:#0d2852;--background-activated:#0d2852;" >
+<ion-icon  style="font-size:28px;color: rgb(223, 221, 221);" name="ellipsis-vertical"></ion-icon>
+<ion-ripple-effect></ion-ripple-effect>
+</ion-fab-button>
+
+</ion-item>
+
+
+
+
+</div>
+
+
+
+</ion-header>
+
+<ion-content [scrollEvents]="true"(ionScroll)="logScrolling($event)">
+
+  <ion-infinite-scroll  [disabled]="infiniteScrooll"  position="top" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="crescent">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
+<ion-grid>
+    <!-- <ion-item lines="none" style="margin-bottom: 15px;margin-top:15px;width: 90%;margin: 0 auto;"   *ngIf="item.date.slice(0,10)!=date.slice(0,10)">
+    <ion-label style="text-align: center;">
+      {{item.date.slice(0,10)}}
+    </ion-label>
+  </ion-item> -->
+  <ion-row class="ion-activatable ripple-parent"  *ngFor="let item of user.messages| slice:start:end,let i=index">
+    <ion-col  style="margin-top: 5px;"  (press)="pressMessage(item.pushId,item.data,item.date,chatUserData[0].email,item.from)" (click)="selectMessage(item.pushId,item.data,item.date,chatUserData[0].email,item.from)"  [ngClass]="{'selectedMessageCss': -1!==user.selectMessagesArray.indexOf(item.pushId),'unSelectedMessageCss':-1===user.selectMessagesArray.indexOf(item.pushId) }" *ngIf="item.from!=user.userArray.uid">
+<ion-ripple-effect></ion-ripple-effect>
+     
+      <div *ngIf="item.dataType=='img'" class="chat_left_img">
+        <img (click)="openImg(item.url,item.data,item.date,0,item.pushId)" width="100%" (load)="scroolBottom()" offset="300"  defaultImage="../../../assets/load.jpg" [lazyLoad]="item.url" alt="">
+        <div *ngIf="item.data" style="padding: 5px;">
+          <ion-label  >
+            {{item.data}}
+          </ion-label>
+        </div>
+        <div *ngIf="item.data" style="position: absolute;bottom: 10px;right:20%;">
+          <ion-label *ngIf="item.date.slice(0,10)!=date.slice(0,10)" style="font-size: 12px;color: black;">
+            {{item.date.slice(8,10)}}-{{item.date.slice(5,7)}}-{{item.date.slice(2,4)}} {{item.date.slice(11,16)}}
+          </ion-label>
+          <ion-label *ngIf="item.date.slice(0,10)==date.slice(0,10)" style="font-size: 12px;color: black;">
+            {{item.date.slice(11,16)}}
+          </ion-label>
+          </div>
+   
+          <div *ngIf="!item.data"  style="position: absolute;bottom: 10px;left:15px;">
+            <ion-label *ngIf="item.date.slice(0,10)!=date.slice(0,10)" style="font-size: 12px;color: white;">
+              {{item.date.slice(8,10)}}-{{item.date.slice(5,7)}}-{{item.date.slice(2,4)}} {{item.date.slice(11,16)}}
+            </ion-label>
+            <ion-label *ngIf="item.date.slice(0,10)==date.slice(0,10)" style="font-size: 12px;color: white;">
+              {{item.date.slice(11,16)}}
+            </ion-label>
+            </div>
+
+      </div>
+
+      <div  *ngIf="item.dataType=='text'" class="chat_left_text">
+        <ion-label style="font-size: 13px;">
+         {{item.data}}
+         </ion-label>
+        <div style="float: right;margin-top: 15px;">
+        <ion-label *ngIf="item.date.slice(0,10)!=date.slice(0,10)" style="font-size: 12px;">
+          {{item.date.slice(8,10)}}-{{item.date.slice(5,7)}}-{{item.date.slice(2,4)}} {{item.date.slice(11,16)}}
+        </ion-label>
+        <ion-label *ngIf="item.date.slice(0,10)==date.slice(0,10)" style="font-size: 12px;">
+          {{item.date.slice(11,16)}}
+        </ion-label>
+        </div>
+      </div>
+
+    </ion-col>
+
+    <ion-col style="margin-top: 5px;" (press)="pressMessage(item.pushId,item.data,item.date,chatUserData[0].email,item.from)"   (click)="selectMessage(item.pushId,item.data,item.date,user.userArray.email,item.from)"  [ngClass]="{'selectedMessageCss': -1!==user.selectMessagesArray.indexOf(item.pushId),'unSelectedMessageCss':-1===user.selectMessagesArray.indexOf(item.pushId) }" *ngIf="item.from==user.userArray.uid">
+      <ion-ripple-effect></ion-ripple-effect>
+
+   <div *ngIf="item.dataType=='img'" class="chat_right_img">
+    <img (click)="openImg(item.url,item.data,item.date,1,item.pushId)"  width="100%" (load)="scroolBottom()" offset="300"   defaultImage="../../../assets/load.jpg"  [lazyLoad]="item.url" alt="">
+    <div *ngIf="item.data" style="padding: 5px;">
+      <ion-label  >
+        {{item.data}}
+      </ion-label>
+    </div>
+    <div  style="position: absolute;bottom: 8px;right: 8px;">
+      <ion-label *ngIf="item.date.slice(0,10)!=date.slice(0,10)" style="font-size: 12px;">
+        {{item.date.slice(8,10)}}-{{item.date.slice(5,7)}}-{{item.date.slice(2,4)}} {{item.date.slice(11,16)}}
+      </ion-label>
+      <ion-label *ngIf="item.date.slice(0,10)==date.slice(0,10)" style="font-size: 12px;">
+        {{item.date.slice(11,16)}}
+      </ion-label>
+      </div>
+
+      <!-- <div *ngIf="!item.data" style="position: absolute;bottom: 8px;right: 8px;background-color: black;opacity: 0.5;">
+        <ion-label *ngIf="item.date.slice(0,10)!=date.slice(0,10)" style="font-size: 12px;">
+          {{item.date.slice(8,10)}}-{{item.date.slice(5,7)}}-{{item.date.slice(2,4)}} {{item.date.slice(11,16)}}
+        </ion-label>
+        <ion-label *ngIf="item.date.slice(0,10)==date.slice(0,10)" style="font-size: 12px;">
+          {{item.date.slice(11,16)}}
+        </ion-label>
+        </div> -->
+
+    </div>
+
+      <div *ngIf="item.dataType=='text'" class="chat_right_text" >
+        <ion-label style="font-size: 13px;">
+          {{item.data}}
+        </ion-label>
+        <div style="float: right;margin-top: 15px;">
+          <ion-label *ngIf="item.date.slice(0,10)!=date.slice(0,10)" style="font-size: 12px;">
+            {{item.date.slice(8,10)}}-{{item.date.slice(5,7)}}-{{item.date.slice(2,4)}} {{item.date.slice(11,16)}}
+          </ion-label>
+          <ion-label *ngIf="item.date.slice(0,10)==date.slice(0,10)" style="font-size: 12px;">
+            {{item.date.slice(11,16)}}
+          </ion-label>
+          </div>
+          </div>
+
+    </ion-col>
+    
+  </ion-row>
+</ion-grid> 
+
+
+</ion-content>
+
+<ion-footer>
+
+  <ion-fab   style="height: 50px;right: 55px;"  vertical="bottom">
+    <ion-fab-button (click)="attach()" color="medium" size="small" mode="ios">
+      <ion-icon  name="attach-sharp"  ></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list  side="top">
+      <ion-fab-button (click)="getGallery()" color="light">
+        <ion-icon color="secondary" name="images-sharp"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon color="primary" name="musical-notes-sharp"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon color="danger" name="document-text-sharp"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-fab  style="height: 50px;right:5px;"  vertical="bottom"  >
+  <ion-fab-button [class]="css" (click)="getCamera()" color="medium" size="small" mode="ios" >
+    <ion-icon  name="camera-sharp" style="font-size: 22px;"  ></ion-icon>
+   </ion-fab-button>
+  </ion-fab>
+  
+  
+  <ion-fab  style="height: 50px;right:5px;"  vertical="bottom"  >
+   <ion-fab-button class="slide-in-right" *ngIf="send_Icon_Control" size="small" mode="ios"  (pan)="panStart()" (panend)="sendShiftedMessages()"   (click)="sendMessages()" style="--background:#0d2852;--background-activated:#0d2852;">
+    <ion-icon  name="send-sharp" style="margin-left: 5px;margin-top: 1px;font-size: 22px;"  ></ion-icon>
+   </ion-fab-button>
+  </ion-fab>
+
+
+<ion-toolbar>
+  <ion-row   align-items-center no-padding>
+    <ion-col  size="9" style="height: 65px;">
+      <ion-textarea #text  [(ngModel)]="messageData"   (ionFocus)="keyboardIsOpen()" (ionBlur)="cancel()"  (ionInput)="chatInput($event)" placeholder="Type your message..." 
+      style="height:10px;width:70%;position: fixed;">
+    </ion-textarea >
+    </ion-col>
+
+</ion-row>
+</ion-toolbar>
+</ion-footer>
+

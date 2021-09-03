@@ -1,0 +1,96 @@
+<ion-list *ngIf="pageControl==0">
+  <ion-item (click)="func()"  class="ion-activatable ripple-parent" lines="none" style="--padding-start:0;">
+    <ion-label style="margin-left: 20px;">
+     New group
+    </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+  </ion-item >
+
+  <ion-item  (click)="settings()" class="ion-activatable ripple-parent" lines="none" style="--padding-start:0">
+    <ion-label style="margin-left: 20px;" >
+    Settings
+    </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+  </ion-item>
+</ion-list>
+
+
+
+<ion-list *ngIf="pageControl==1">
+  <ion-item (click)="viewContact()"  class="ion-activatable ripple-parent" lines="none" style="--padding-start:0">
+    <ion-label style="margin-left: 20px;">
+   View contact
+    </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+  </ion-item >
+
+  <ion-item  class="ion-activatable ripple-parent" lines="none" style="--padding-start:0">
+    <ion-label style="margin-left: 20px;" >
+    Search
+    </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+  </ion-item>
+  
+  <ion-item  class="ion-activatable ripple-parent" lines="none" style="--padding-start:0">
+    <ion-label style="margin-left: 20px;" >
+    Clear chat
+    </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+  </ion-item>
+
+  <ion-item  class="ion-activatable ripple-parent" lines="none" style="--padding-start:0">
+    <ion-label style="margin-left: 20px;" >
+    Block
+    </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+  </ion-item>
+</ion-list>
+
+
+
+<ion-list *ngIf="pageControl==2">
+  <ion-item (click)="deletePhoto()"  class="ion-activatable ripple-parent" lines="none" style="--padding-start:0;">
+    <ion-label style="margin-left: 20px;">
+     Delete
+    </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+  </ion-item >
+</ion-list>
+
+
+
+<ion-list *ngIf="pageControl==3">
+  <ion-item (click)="deleteMessage()"  class="ion-activatable ripple-parent" lines="none" style="--padding-start:0;">
+    <ion-label  style="margin-left: 20px;font-size: 15px;">
+     Delete messages
+    </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+  </ion-item >
+
+  <ion-item (click)="copyMessage()"  class="ion-activatable ripple-parent" lines="none" style="--padding-start:0;">
+    <ion-label style="margin-left: 20px;font-size: 15px;">
+     Copy messages
+    </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+  </ion-item >
+</ion-list>
+
+
+<ion-list *ngIf="pageControl==4">
+  <ion-item (click)="decodeMessage()"  class="ion-activatable ripple-parent" lines="none" style="--padding-start:0;">
+    <ion-label  style="margin-left: 20px;font-size: 15px;">
+     Decode Message
+    </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+  </ion-item >
+</ion-list>
+
+
+<ion-list *ngIf="pageControl==5">
+  <ion-item (click)="decodePipMessage()"  class="ion-activatable ripple-parent" lines="none" style="--padding-start:0;">
+    <ion-label  style="margin-left: 20px;font-size: 15px;">
+     Decode Message
+    </ion-label>
+<ion-ripple-effect></ion-ripple-effect>
+  </ion-item >
+</ion-list>

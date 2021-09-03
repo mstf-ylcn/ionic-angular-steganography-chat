@@ -1,0 +1,120 @@
+<ion-header>
+  
+  <ion-item   lines="none" style="--padding-start:0;--padding-end:0;--inner-padding-start:0;--inner-padding-end:0;--background:#0d2852;">
+
+    <ion-fab-button (click)="back()"  *ngIf="!control" style="--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;" > 
+    <ion-icon style="font-size:32px;color: whitesmoke;" name="chevron-back-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-title *ngIf="!control" style="color: whitesmoke;">Profile</ion-title>
+
+  <ion-fab-button  (click)="updateControl()" *ngIf="!control"  style="--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;" > 
+    <ion-icon  style="font-size:24px;color: whitesmoke;" name="pencil"></ion-icon>
+  </ion-fab-button>
+
+  <ion-fab-button (click)="cancel()" *ngIf="control" style="--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;" > 
+    <ion-icon  style="font-size:30px;color: whitesmoke;" name="close-sharp"></ion-icon>
+  </ion-fab-button>
+
+
+  <ion-fab-button  (click)="update()" *ngIf="control" style="--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;margin-left: 71%;" > 
+    <ion-icon style="font-size:30px;color: whitesmoke;" name="checkmark-sharp"></ion-icon>
+  </ion-fab-button>
+
+
+</ion-item>
+
+</ion-header>
+
+<ion-content>
+
+  
+  <div >
+
+  <ion-avatar  (click)="photoViewer()" slot="start" style="margin: 5% auto 0 auto; height: 175px; width: 175px;">
+    <img [src]="user.userArray.pp">
+  </ion-avatar>
+  <ion-fab-button (click)="getCamera()" mode="ios" style="position: absolute;margin-left: 60%;margin-top: -12%;height: 36px;width: 36px;--background:#0d2852;--background-activated:#0d2852;">
+
+  <ion-icon style="font-size: 24px;color: whitesmoke;" name="camera-sharp"></ion-icon>
+</ion-fab-button>
+
+</div>
+
+
+<br>
+  
+<form [formGroup]="form">
+<ion-item   lines="inset" style="--highlight-color-focused: grey;">
+  <ion-label mode="ios" position="floating">Name</ion-label>
+
+  <ion-input  formControlName="name"   minlength="2"  [attr.disabled]="!control" >
+  </ion-input>
+</ion-item>
+<ion-text style="margin-left: 15px;" *ngIf="!form.get('name').valid && form.get('name').touched">
+  <ion-text color="danger" *ngIf="form.get('name').hasError('required')">
+    ⓘ Please enter your name!
+  </ion-text>
+ <ion-text color="danger" *ngIf="!form.get('name').hasError('required') && form.get('name').hasError('minlength')">
+  ⓘ Please enter your full name!
+ </ion-text>
+</ion-text>
+
+<ion-item lines="inset" style="--highlight-color-focused: grey;">
+  <ion-label style="margin-bottom: -10px;" mode="ios"  position="floating">About</ion-label>
+  <ion-textarea formControlName="about" minlength="1" autosize maxRows="5" [attr.disabled]="!control" >
+  </ion-textarea>
+</ion-item>
+<ion-text  style="margin-left: 15px;"  *ngIf="!form.get('about').valid && form.get('about').touched">
+  <ion-text color="danger" *ngIf="form.get('about').hasError('required')">
+  </ion-text>
+</ion-text>
+
+
+
+
+</form>
+
+<ion-item lines="inset" style="--highlight-color-focused: grey;">
+  <ion-label  mode="ios" position="floating">Mail</ion-label>
+
+  <ion-input required  disabled="true"  [(ngModel)]="user.userArray.email">
+
+</ion-input>
+
+<!-- <ion-input  *ngIf="control"  [(ngModel)]="email">
+
+</ion-input> -->
+
+
+</ion-item>
+
+
+
+  <!-- <br>
+  <ion-item  class="ion-activatable ripple-parent" style="--padding-start:0;" >
+    <ion-label mode="ios" position="floating" style="margin-left: 15px;">Last seen</ion-label>
+    <ion-input readonly value="Nobody" style="margin-left: 15px;">
+
+    </ion-input>
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-item>
+  <br>
+  <ion-item  class="ion-activatable ripple-parent" style="--padding-start:0;" >
+    <ion-label mode="ios" position="floating" style="margin-left: 15px;">Profil photo</ion-label>
+    <ion-input readonly value="Everyone" style="margin-left: 15px;">
+    </ion-input>
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-item>
+  <br>
+  <ion-item  class="ion-activatable ripple-parent" style="--padding-start:0;" >
+    <ion-label mode="ios" position="floating" style="margin-left: 15px;">About</ion-label>
+    <ion-input readonly value="My Contact" style="margin-left: 15px;">
+
+    </ion-input>
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-item>
+  <br> -->
+   
+
+
+</ion-content>

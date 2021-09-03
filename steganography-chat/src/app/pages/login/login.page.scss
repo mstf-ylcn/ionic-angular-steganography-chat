@@ -1,0 +1,15 @@
+ion-item {
+    
+    --highlight-color-focused: #0d2852;
+}
+
+.item-interactive.ion-valid
+{
+--highlight-background:#0d2852;
+}
+
+ion-item.item-has-focus > ion-label{
+    color:  #7ca5e6b9  !important;
+  }
+
+  

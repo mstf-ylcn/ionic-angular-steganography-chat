@@ -1,0 +1,73 @@
+ion-item{
+    --background:transparent;
+} 
+.divider {
+    display: flex;
+    
+    &:before,
+    &:after {
+      content: "";
+      flex: 1;
+    }
+  }
+  
+  .line {
+    align-items: center;
+    margin: 1em -1em;
+    color: #cccccc;
+    
+    &:before,
+    &:after {
+      height: 1px;
+      margin: 0 1em;
+    }
+  } 
+  
+  .one-line {
+    &:before,
+    &:after {
+       background: #cccccc;
+    }
+  }
+  
+  
+  //butonlar arası text
+  .already {
+    display: block;
+    text-align: center;
+    padding-bottom: 10px;
+   color:rgb(104, 93, 93);
+  }
+
+  .item-interactive.ion-valid
+  {
+  --highlight-background:#0d2852;
+  }
+  
+  ion-item {
+    
+    --highlight-color-focused: #0d2852;
+}
+
+ion-item.item-has-focus > ion-label{
+    color:  #7ca5e6b9  !important;
+  }
+
+
+.singup_item{
+   margin-left: 30px;
+   --background:transparent;
+   width: 90%;
+}
+
+ .icon
+ {
+    position: absolute;
+    font-size: 32px;
+    z-index: 99;
+    margin-top: 18px;
+    color:#0d2852;
+ }
+ 
+
+

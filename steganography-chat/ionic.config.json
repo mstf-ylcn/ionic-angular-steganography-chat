@@ -1,0 +1,7 @@
+{
+  "name": "steganography-chat",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,93 @@
+
+<ion-content>
+
+
+  <ion-icon (click)="back()" style="position:absolute;font-size: 28px;margin-left: 5px;margin-top: 10px;color:White;background: rgba(0, 0, 0, 0.342);" name="chevron-back-sharp"></ion-icon>
+
+  <div (click)="photoViewer()"  >
+    <img [src]="user.contactUserData.pp"  style="object-fit: cover;width: 100%;height: 300px;" >
+</div>
+
+
+   <!-- border color bak -->
+  <ion-item style="margin-top: 20px;" >
+    <ion-title style="padding:0">
+     {{user.contactUserData.name}}
+    </ion-title>
+  </ion-item>
+  <!-- max word !!!!! -->
+<br>
+
+  <ion-item   > 
+    <ion-grid>
+
+     <ion-row style="padding:0;margin-left: -5px;">
+    <ion-text style="margin-bottom: 15px;margin-top: 10px;display: block;">
+{{user.contactUserData.about}}
+ 
+    </ion-text>
+  </ion-row>
+
+    <ion-row style="float: right;margin-top: -10px;">
+    <ion-text style="color: rgb(116, 116, 116);margin-right: -7px;">
+    {{user.contactUserData.aboutDate.slice(8,10)}}.{{user.contactUserData.aboutDate.slice(5,7)}}.{{user.contactUserData.aboutDate.slice(2,4)}}
+    </ion-text>
+  </ion-row>
+
+  </ion-grid>
+
+    </ion-item>
+    
+  <ion-item>
+    <ion-text style="padding:0">
+    {{user.contactUserData.email}}
+    </ion-text>
+  </ion-item>
+
+
+<ion-item  class="ion-activatable ripple-parent" style="margin-top: 20px;--padding-start:0;">
+  <ion-icon style="font-size:32px;color:#b00020;margin-left: 12px;" name="ban-sharp"></ion-icon>
+  <ion-label style="font-size: 16px;color:#b00020;margin-left: 10px;">
+    Block contact
+  </ion-label>
+  <ion-ripple-effect></ion-ripple-effect>
+</ion-item>
+<ion-item  class="ion-activatable ripple-parent" style="margin-top: 20px;--padding-start:0;">
+  <ion-icon style="font-size:32px;color:#b00020;margin-left: 12px;" name="thumbs-down-sharp"></ion-icon>
+  <ion-label style="font-size: 16px;color:#b00020;margin-left: 10px;">
+    Report contact
+  </ion-label>
+  <ion-ripple-effect></ion-ripple-effect>
+</ion-item>
+
+</ion-content>
+
+
+
+
+<!-- 
+<ion-header>
+  <ion-icon style="position:absolute;font-size:32px;color: white;margin-left: 5 px;margin-top: 10px;" name="chevron-back-outline"></ion-icon>
+  <ion-icon style="position:absolute;font-size:28px;color: white;margin-top: 10px;right: 5px;"name="ellipsis-vertical-sharp"></ion-icon>
+   
+  <ion-item lines="none" style="position: absolute;bottom:5px;margin-left: 10px;--padding-start:0;width: 99%;" color="transparent">
+  <ion-label style="color: whitesmoke;" >
+    Deneme test 
+  </ion-label>
+</ion-item>
+
+  <img src="https://picsum.photos/seed/picsum/500/500" width="400px" height="400px"  style=" object-fit:cover;">
+
+</ion-header>
+<ion-content>
+   
+  <ion-item style="--padding-start:0;margin-top:10px">
+
+  <ion-label style="margin-left:20px;" >
+    Durum Durum Durum
+  </ion-label>
+</ion-item>
+ 
+
+
+</ion-content> -->

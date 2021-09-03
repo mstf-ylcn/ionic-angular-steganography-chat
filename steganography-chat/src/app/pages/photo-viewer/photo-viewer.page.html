@@ -1,0 +1,37 @@
+<ion-header >
+  
+  <ion-item  lines="none" style="--padding-start:0;--padding-end:0;--inner-padding-start:0;--inner-padding-end:0;--background:black;">
+    <ion-fab-button (click)="back()" style="height: 34px;width:34px;--box-shadow:0;--background:transparent;--background-activated:transparent;" > 
+      <ion-icon style="font-size:32px;color: whitesmoke;" name="chevron-back-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-title *ngIf="userControl==1" style="color: whitesmoke;margin-left: -10px;">
+      {{user.contactUserData.name}}
+    </ion-title>
+    <ion-title *ngIf="userControl==0 || userControl==2" style="color: whitesmoke;margin-left: -10px;">
+     Profil photo
+    </ion-title>
+    <ion-fab-button (click)="getCamera()" *ngIf="userControl==0"  style="--box-shadow:0;--background:transparent;--background-activated:#transparent;" > 
+      <ion-icon  style="font-size:24px;color: whitesmoke;" name="pencil"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-button (click)="uploadImage()" *ngIf="userControl==2"  style="--box-shadow:0;--background:transparent;--background-activated:#transparent;" > 
+      <ion-icon  style="font-size:32px;color: whitesmoke;" name="checkmark"></ion-icon>
+    </ion-fab-button>
+
+</ion-item>
+
+</ion-header>
+<ion-content >
+  <ion-slides [options]="sliderOpts" #slider >
+    <ion-slide>
+      <div class="swiper-zoom-container" >
+        <img *ngIf="userControl==0" [src]="user.userArray.pp" style="width: 100%;height: 100%;" alt="">
+
+        <img *ngIf="userControl==1" [src]="user.contactUserData.pp" style="width: 100%;height: 100%;" alt=""> 
+
+        <img *ngIf="userControl==2" [src]="user.newPp" style="width: 100%;height: 100%;" alt=""> 
+
+    </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

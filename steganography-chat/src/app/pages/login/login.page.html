@@ -1,0 +1,87 @@
+
+
+<ion-content  [fullscreen]="true">
+
+    <div *ngIf="!hidePage">
+
+<div style="margin-top: 70%;"> 
+    <form [formGroup]="form">
+
+    <ion-icon name="mail" style="position: absolute;font-size: 32px;z-index: 99;margin-top: 18px;color:#0d2852;"></ion-icon>
+
+<ion-item style="margin-left: 30px;--background:transparent;width: 90%;">
+    <ion-label style="font-size: 20px;" position="floating">Mail</ion-label>
+    <ion-input formControlName="email"  type="email"></ion-input>
+</ion-item>
+<ion-text style="margin-left: 40px;" *ngIf="!form.get('email').valid && form.get('email').touched">
+    <ion-text color="danger" *ngIf="form.get('email').hasError('required')">
+      ⓘ Please enter your e-mail address!
+    </ion-text>
+   <ion-text color="danger" *ngIf="!form.get('email').hasError('required')  && form.get('email').hasError('pattern') ">
+    ⓘ Please enter your e-mail address!
+   </ion-text>
+  </ion-text>
+<br>
+<ion-icon name="lock-closed" style="position: absolute;font-size: 32px;z-index: 99;margin-top: 18px;color:#0d2852;"></ion-icon>
+<ion-item style="margin-left: 30px;--background:transparent;width: 90%;">
+    <ion-label style="font-size: 20px;" position="floating">Password</ion-label>
+    <ion-input  formControlName="password" [attr.maxlength]="30"  text="password"  [type]="password_type"></ion-input>
+    <ion-icon style="margin-top: 20px;" [hidden]="hide"    name="eye" slot="end" (click)="show_pw()" ></ion-icon>
+    <ion-icon style="margin-top: 20px;"  [hidden]="!hide"   name="eye-off" slot="end" (click)="show_pw()" ></ion-icon>
+</ion-item>
+<ion-text style="margin-left: 40px;" *ngIf="!form.get('password').valid && form.get('password').touched">
+    <ion-text color="danger" *ngIf="form.get('password').hasError('required')">
+      ⓘ Please enter your password!
+    </ion-text>
+   <ion-text color="danger" *ngIf="!form.get('password').hasError('required') && form.get('password').hasError('minlength')
+   && form.get('password').hasError('pattern')">
+    ⓘ Your password must be at least 6 characters!
+   </ion-text>
+  </ion-text>
+</form>
+
+<ion-button (click)="login()" style="margin-top: 35px;--background:#0d2852;" expand="block">Login</ion-button>
+</div>
+
+
+   
+<div (click)="forgetPw()">
+    <ion-label style="float: right;margin-top: 20px;margin-right: 10px;font-size: 17px;">
+       <u> Forgot password ?    </u> 
+    </ion-label>
+</div>
+
+
+<ion-toolbar style="--background:transparent;margin-top: 100px;">
+    <div style="text-align: center;" >
+        <ion-label>
+            Don't have an account? <a routerLink='/singup' ><b>SIGN UP</b></a>
+        </ion-label>
+    </div>
+  </ion-toolbar>
+
+</div>
+
+
+
+
+  
+<div *ngIf="hidePage">
+    <ion-toolbar style="--background: transparent;">
+      <ion-icon (click)="backLogin()" name="close-outline" style="font-size:32px;float: right;margin-right: 15px;margin-top: 10px;"></ion-icon>
+    </ion-toolbar>
+  <div style="margin-top: 80%;">
+
+  <ion-item style="--background:transparent" lines="full">
+    <ion-label position="floating">E-mail</ion-label>
+    <ion-input (ionInput)="mailData($event)"  text="text"  maxlength="100" >       
+    </ion-input>
+   </ion-item>
+  </div>
+  <ion-button style="--background:#0d2852;margin-top: 30px;"  expand="block" class="buton"  (click)="resetPw()">Reset Password</ion-button>
+
+</div>
+  
+  
+</ion-content>
+

@@ -1,0 +1,118 @@
+<ion-header>
+  
+  <ion-item   lines="none" style="--padding-start:0;--padding-end:0;--inner-padding-start:0;--inner-padding-end:0;--background:#0d2852;">
+
+    <ion-fab-button (click)="back()"   style="--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;" > 
+    <ion-icon style="font-size:32px;color: whitesmoke;" name="chevron-back-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-title style="color: whitesmoke;">Account settings</ion-title>
+
+  <!-- <ion-fab-button  (click)="updateControl()"style="--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;" > 
+    <ion-icon  style="font-size:24px;color: whitesmoke;" name="pencil"></ion-icon>
+  </ion-fab-button> -->
+<!-- 
+  <ion-fab-button (click)="cancel()" *ngIf="control" style="--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;" > 
+    <ion-icon  style="font-size:30px;color: whitesmoke;" name="close-sharp"></ion-icon>
+  </ion-fab-button>
+
+
+  <ion-fab-button  (click)="update()" *ngIf="control" style="--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;margin-left: 71%;" > 
+    <ion-icon style="font-size:30px;color: whitesmoke;" name="checkmark-sharp"></ion-icon>
+  </ion-fab-button> -->
+
+</ion-item>
+
+</ion-header>
+
+<ion-content>
+
+  <br><br>
+  <form [formGroup]="form">
+    <ion-item style="--background:transparent" lines="full">
+      <ion-label  position="floating">E-mail</ion-label>
+      <ion-input   formControlName="email" text="text"  maxlength="100" >       
+      </ion-input>
+     </ion-item>
+    <ion-text style="margin-left: 10px;" *ngIf="!form.get('email').valid && form.get('email').touched">
+      <ion-text color="danger" *ngIf="form.get('email').hasError('required')">
+        ⓘ Please enter your e-mail!  
+      </ion-text>
+     <ion-text color="danger"  *ngIf="!form.get('email').hasError('required')  && form.get('email').hasError('pattern') ">
+     </ion-text>
+    </ion-text>
+
+   <br>
+
+   <ion-item style="--background:transparent" lines="full">
+    <ion-label  position="floating">Password</ion-label>
+    <ion-input  formControlName="password"     [type]="password_type" ></ion-input>
+  
+    <ion-icon style="margin-top: 20px;" [hidden]="hide"    name="eye" slot="end" (click)="show_pw()" ></ion-icon>
+    <ion-icon style="margin-top: 20px;"  [hidden]="!hide"   name="eye-off" slot="end" (click)="show_pw()" ></ion-icon>
+  </ion-item>
+  <ion-text style="margin-left: 10px;" *ngIf="!form.get('password').valid && form.get('password').touched">
+    <ion-text color="danger" *ngIf="form.get('password').hasError('required')">
+      ⓘ Please enter your password!
+    </ion-text>
+   <ion-text color="danger" *ngIf="!form.get('password').hasError('required') && form.get('password').hasError('minlength')
+   && form.get('password').hasError('pattern')">
+    ⓘ Your password must be at least 6 characters!
+   </ion-text>
+  </ion-text>
+  <br>
+  <br>
+
+  <ion-button style="--background:#0d2852;"  expand="block" class="buton"  (click)="changeEmail()">Change Email</ion-button>
+
+
+  </form>
+
+ 
+
+  <br>
+  <br>
+
+  <form [formGroup]="form2">
+
+  <ion-item style="--background:transparent" lines="full">
+    <ion-label  position="floating">Password</ion-label>
+    <ion-input formControlName="password2"   [type]="password_type2" ></ion-input>
+  
+    <ion-icon style="margin-top: 20px;" [hidden]="hide2"    name="eye" slot="end" (click)="show_pw2()" ></ion-icon>
+    <ion-icon style="margin-top: 20px;"  [hidden]="!hide2"   name="eye-off" slot="end" (click)="show_pw2()" ></ion-icon>
+  </ion-item>
+  <ion-text style="margin-left: 10px;" *ngIf="!form2.get('password2').valid && form2.get('password2').touched">
+    <ion-text color="danger" *ngIf="form2.get('password2').hasError('required')">
+      ⓘ Please enter your password!
+    </ion-text>
+   <ion-text color="danger" *ngIf="!form2.get('password2').hasError('required') && form2.get('password2').hasError('minlength')
+   && form2.get('password2').hasError('pattern')">
+    ⓘ Your password must be at least 6 characters!
+   </ion-text>
+  </ion-text>
+<br>
+  <ion-item style="--background:transparent" lines="full">
+    <ion-label  position="floating">New Password(6+ characters)</ion-label>
+    <ion-input  formControlName="password3"    [type]="password_type3" ></ion-input>
+  
+    <ion-icon style="margin-top: 20px;" [hidden]="hide3"    name="eye" slot="end" (click)="show_pw3()" ></ion-icon>
+    <ion-icon style="margin-top: 20px;"  [hidden]="!hide3"   name="eye-off" slot="end" (click)="show_pw3()" ></ion-icon>
+  </ion-item>
+  <ion-text style="margin-left: 10px;" *ngIf="!form2.get('password3').valid && form2.get('password3').touched">
+    <ion-text color="danger" *ngIf="form2.get('password3').hasError('required')">
+      ⓘ Please enter your new password!
+    </ion-text>
+   <ion-text color="danger" *ngIf="!form2.get('password3').hasError('required') && form2.get('password3').hasError('minlength')
+   && form2.get('password3').hasError('pattern')">
+    ⓘ Your new password must be at least 6 characters!
+   </ion-text>
+  </ion-text>
+
+  <br>
+  <br>
+
+  <ion-button style="--background:#0d2852;"  expand="block" class="buton"  (click)="changePw()">Change Password</ion-button>
+
+  </form>
+
+</ion-content>

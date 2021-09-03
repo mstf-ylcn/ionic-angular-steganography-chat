@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-item   lines="none" style="--min-height: 70px;--background:#0d2852;--padding-end:0;--inner-padding-end:8px;--padding-start:0;" >
+    <ion-fab-button  (click)="back()" *ngIf="!control"  style="height: 40px;width: 40px;--box-shadow:0;--background:#0d2852;--background-activated:#0d2852;" > 
+      <ion-icon style="font-size:32px;color: whitesmoke;" name="chevron-back-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-title  *ngIf="!control"  style="color: whitesmoke;margin-left: 59px;">Select Contact</ion-title>
+
+    <div class="search" (click)="searchFocus()" >
+  <ion-searchbar placeholder="Search Contact"  (ionInput)="search($event)" showCancelButton="focus" (ionBlur)="cancel()" (ionCancel)="cancel()" #se  ></ion-searchbar>
+     </div>
+
+  </ion-item>
+  </ion-header>
+
+<ion-content>
+
+
+  <div  style="margin-top: 10px;" >
+    <ion-item-sliding  *ngFor="let item of contactArray">
+    
+    <ion-item (click)="chatPage(item.uid,item.name)"  lines="none"   class="ion-activatable ripple-parent" style="--padding-start:0;" >
+      <ion-item lines="none" style="--background:transparent;--padding-end:0;--inner-padding-end:0;">
+
+      <ion-avatar  style="height:48px;width: 48px;"  slot="start">
+        <img [src]="item.pp">
+      </ion-avatar>
+    </ion-item>
+
+      <ion-label>
+        <ion-title style="max-width: 95%;float: left;font-size: 18px;padding: 0; "  >{{item.email}}</ion-title> 
+        <p style="font-size: 15px;max-width: 95%;clear: both;">
+        {{item.about}}
+        </p>
+      </ion-label>
+
+    <ion-ripple-effect></ion-ripple-effect>
+
+    </ion-item>  
+    <ion-item-options side="end">
+      <ion-item-option color="primary" (click)="deleteContact(item.uid)">
+        <ion-icon name="pencil-outline" slot="icon-only"></ion-icon>
+      </ion-item-option>
+      <ion-item-option color="danger" (click)="deleteContact(item.uid)">
+        <ion-icon name="trash" slot="icon-only"></ion-icon>
+      </ion-item-option>
+ 
+    </ion-item-options>
+  </ion-item-sliding>
+      </div>
+
+    <ion-fab-button (click)="addContact()" *ngIf="!control"  class="slide-in-right"   mode="ios" style="position: fixed;bottom:30px;right:15px;width: 45px; height: 45px;--background:#0d2852;--background-activated:#0d2852;--box-shadow: 2px 3px 3px 0 rgba(0, 0, 0, 0.5);">
+        <ion-icon style="width: 25px; height: 25px;" name="person-add-sharp"></ion-icon>
+      </ion-fab-button>
+
+
+
+</ion-content>
