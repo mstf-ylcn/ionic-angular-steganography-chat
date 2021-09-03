@@ -34,43 +34,36 @@ npm install @ionic-native/file
 ionic cap sync
 
 
-   <video controls muted  height="250" width="300" preload="metadata" loop>
-            <source src="media/monitor.mp4">
-        </video>
-        
 
-https://user-images.githubusercontent.com/83976212/132053856-186c5482-c817-4590-9341-24718f0f92ff.mp4
+<br><br>
+<p float="left">
 
 
- https://user-images.githubusercontent.com/83976212/132053864-8892a20e-b196-4c8e-925e-c87541520b7e.mp4
+https://user-images.githubusercontent.com/83976212/132055109-34ec82fe-eb3b-443b-874f-e96839ce6b1f.mp4
 
 
 
-<video loop>
-  <source src="https://user-images.githubusercontent.com/83976212/132053873-52f9dd58-a0b5-4ed2-afb0-127c13b97167.mp4" type="video/mp4">
-
-</video>
-
-<video  loop>
-  <source src="https://user-images.githubusercontent.com/83976212/132053877-871ad0cc-d9ae-4cbc-8958-dfb08c577cc6.mp4" type="video/mp4">
-</video>
-
-
-<video controls>
-  <source src="https://user-images.githubusercontent.com/83976212/132053880-5a6a1d2b-4b3b-4a32-ba85-d82c31efafe7.mp4" type="video/mp4">
-
-</video>
+https://user-images.githubusercontent.com/83976212/132055118-1b0d7d8c-f512-4d0b-8f8e-0fda8f990d0b.mp4
 
 
 
+https://user-images.githubusercontent.com/83976212/132055122-ebe6b122-c3d1-444e-8067-6c1fa2bba262.mp4
 
 
-<video width="1024" height="768" controls>
-  <source src="https://user-images.githubusercontent.com/83976212/132053891-6429d0c4-d090-41d7-af52-ee507b4ef717.mp4" type="video/mp4">
 
-</video>
+https://user-images.githubusercontent.com/83976212/132055126-e6c24dee-6f66-434f-ac1b-9d4afea08c1b.mp4
 
 
+
+https://user-images.githubusercontent.com/83976212/132055129-faeedc77-ccd3-4c9c-9e09-c09183d06c75.mp4
+
+
+
+https://user-images.githubusercontent.com/83976212/132055139-1bdb6407-7db5-460f-ba54-981cf2498db1.mp4
+
+
+
+</p>
 
 
 
