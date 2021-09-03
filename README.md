@@ -33,15 +33,16 @@ npm install cordova-plugin-file
 npm install @ionic-native/file
 ionic cap sync
 
+
    <video controls muted  height="250" width="300" preload="metadata" loop>
             <source src="media/monitor.mp4">
         </video>
-
+<p float="left">
 <video loop>
   <source src="https://user-images.githubusercontent.com/83976212/132053856-186c5482-c817-4590-9341-24718f0f92ff.mp4" >
 
 </video>
-
+</p>
 <video  loop>
   <source src="https://user-images.githubusercontent.com/83976212/132053864-8892a20e-b196-4c8e-925e-c87541520b7e.mp4" type="video/mp4">
 
