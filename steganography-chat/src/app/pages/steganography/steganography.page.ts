@@ -959,6 +959,9 @@ decodeTextMessage()
 
     this.tempWord=this.tempWord+rgbaBinary[rgbaBinary.length-1];
   }
+       setTimeout(() => {
+    this.content.scrollToBottom(500);
+   }, 100);
 }
 
 decodePip()
