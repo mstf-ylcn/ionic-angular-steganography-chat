@@ -67,30 +67,30 @@ export class ChatPage implements OnInit {
   }
  
 
-  
+  ionViewWillLeave()
+  {
+   this.fireDb.database.ref('messages/'+this.user.userArray.uid+'/'+this.user.chatUId).once('value',data=>{
+     if(data.exists())
+     {
+      data.forEach(uid=>{
+        this.fireDb.database.ref('messages/'+this.user.userArray.uid+'/'+this.user.chatUId+'/'+uid.val().pushId).update({
+          read:true,
+        }
+        )
+      })
+     }
+      })
+  }
 
   height;
   logScrolling(event)
   {
     this.height=event.detail.scrollTop;
   }
-  
-  
-  ionViewDidLeave()
-  {
-   this.fireDb.database.ref('messages/'+this.user.userArray.uid+'/'+this.user.chatUId).once('value',data=>{
-      data.forEach(uid=>{
-         this.fireDb.database.ref('messages/'+this.user.userArray.uid+'/'+this.user.chatUId+'/'+uid.val().pushId).update({
-           read:true,
-         }
-         )
-       })
-      })
-  }
-  
  
   back()
   {
+
       let options:NativeTransitionOptions={
         direction:'right',
         duration:300,
@@ -200,6 +200,7 @@ export class ChatPage implements OnInit {
       if(data.exists())
       {
          this.messageCounter=data.numChildren();
+         console.log("test:"+this.messageCounter);
       }
     })
 
@@ -455,7 +456,6 @@ deleteMessageForEveryone()
   keyboardIsOpen()
   {
   this.keyboardOpen=1;
-
   }
   cancel()
   {
@@ -607,7 +607,6 @@ deleteMessageForEveryone()
  {
    if(this.scroolControl==0)
    {
-   
     
     if(this.control==1)
     this.control++;
