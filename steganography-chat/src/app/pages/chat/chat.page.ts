@@ -41,7 +41,6 @@ export class ChatPage implements OnInit {
     public actionSheetController: ActionSheetController,
     private nativePageTransitions:NativePageTransitions) {
     console.log("chat")
-    // this.test();
    }
    
    date;
@@ -201,7 +200,6 @@ export class ChatPage implements OnInit {
       if(data.exists())
       {
          this.messageCounter=data.numChildren();
-         console.log("test:"+this.messageCounter);
       }
     })
 
@@ -457,7 +455,7 @@ deleteMessageForEveryone()
   keyboardIsOpen()
   {
   this.keyboardOpen=1;
-  //  console.log("open");
+
   }
   cancel()
   {
@@ -609,7 +607,7 @@ deleteMessageForEveryone()
  {
    if(this.scroolControl==0)
    {
-    //  console.log("calisti");
+   
     
     if(this.control==1)
     this.control++;
