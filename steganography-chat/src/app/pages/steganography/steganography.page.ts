@@ -56,7 +56,13 @@ export class SteganographyPage implements OnInit {
   ionViewDidEnter(){
     this.slider.update();
   }
-
+   
+  ionViewWillLeave()
+  {
+    this.dismiss();
+    this.dismiss2();
+  }
+  
 
   sliderOpts={
     zoom:{
