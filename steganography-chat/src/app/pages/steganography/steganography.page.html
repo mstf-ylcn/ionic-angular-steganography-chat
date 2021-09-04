@@ -30,13 +30,20 @@
   <ion-slides *ngIf="user.decodeControl>0" [options]="sliderOpts" #slider  >
     <ion-slide>
       <div class="swiper-zoom-container" >
-        <ion-label *ngIf="user.decodeControl==2" style="color: white;position: absolute;top:5px;left: 10px;">
-          Result: {{word}}
-        </ion-label>
         <img (load)="decodeMessage()" #pic  [src]="user.photo2" style="width: 100%;height: 100%;" alt="">
     </div>
     </ion-slide>
   </ion-slides>
+
+  <ion-slides *ngIf="user.decodeControl==2" [options]="sliderOpts" #slider  >
+    <ion-slide>
+  <div class="swiper-zoom-container" >
+    <ion-label  style="color: white;position: absolute;top:10px;left: 10px;">
+      Result: {{word}}
+    </ion-label>
+  </div>
+</ion-slide>
+</ion-slides>
 
 
   <ion-slides *ngIf="user.decodeControl==1" [options]="sliderOpts" #slider  >
