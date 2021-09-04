@@ -75,10 +75,11 @@ export class ChatPage implements OnInit {
   {
     this.height=event.detail.scrollTop;
   }
- 
-  back()
+  
+  
+  ionViewDidLeave()
   {
-    this.fireDb.database.ref('messages/'+this.user.userArray.uid+'/'+this.user.chatUId).once('value',data=>{
+   this.fireDb.database.ref('messages/'+this.user.userArray.uid+'/'+this.user.chatUId).once('value',data=>{
       data.forEach(uid=>{
          this.fireDb.database.ref('messages/'+this.user.userArray.uid+'/'+this.user.chatUId+'/'+uid.val().pushId).update({
            read:true,
@@ -86,7 +87,11 @@ export class ChatPage implements OnInit {
          )
        })
       })
-
+  }
+  
+ 
+  back()
+  {
       let options:NativeTransitionOptions={
         direction:'right',
         duration:300,
