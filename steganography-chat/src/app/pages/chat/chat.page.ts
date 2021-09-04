@@ -273,11 +273,11 @@ export class ChatPage implements OnInit {
  }
 
 
- pressControl=0;
+
   pressMessage(pushId,text,date,name,from)
   {
         
-    if(this.pressControl==0)
+    if(this.user.pressControl==0)
     {
       this.user.selectMessagesArray.push(pushId);
       this.user.selectFrom.push(from);
@@ -287,20 +287,20 @@ export class ChatPage implements OnInit {
       else
       this.user.selectTextArray.push({text:'(photo)',date:date,from:name,pushId:pushId});
       
-      this.pressControl=1;
+      this.user.pressControl=1;
     }
   }
 
 
  selectMessage(pushId,text,date,name,from)
  {
-    if(this.pressControl==1)
+    if(this.user.pressControl==1)
     {
-      this.pressControl++;
+      this.user.pressControl++;
       return;
     }
 
-    if(this.pressControl==2)
+    if(this.user.pressControl==2)
     {
      
     var index=this.user.selectMessagesArray.indexOf(pushId,0)
@@ -315,7 +315,7 @@ export class ChatPage implements OnInit {
      
        if(this.user.selectMessagesArray.length==0)
        {
-         this.pressControl=0;
+         this.user.pressControl=0;
        }
      }
      else
@@ -359,7 +359,7 @@ export class ChatPage implements OnInit {
   this.user.selectFrom=[];
   this.user.selectMessagesArray=[];
   this.user.selectTextArray=[];
-  this.pressControl=0;
+  this.user.pressControl=0;
  }
 
 
@@ -390,14 +390,14 @@ deleteMessageForEveryone()
   this.user.selectFrom=[];
   this.user.selectMessagesArray=[];
   this.user.selectTextArray=[];
-  this.pressControl=0;
+  this.user.pressControl=0;
 
   
 }
 
  unSelect()
  {
-   this.pressControl=0;
+   this.user.pressControl=0;
    this.user.selectFrom=[];
    this.user.selectMessagesArray=[];
    this.user.selectTextArray=[];
@@ -411,7 +411,7 @@ deleteMessageForEveryone()
    console.log(text);
 
  this.clipboard.copy(text);
- this.pressControl=0;
+ this.user.pressControl=0;
  this.user.selectMessagesArray=[];
  this.user.selectTextArray=[];
  this.user.selectFrom=[];
@@ -855,7 +855,8 @@ unshift()
   }
  console.log(this.unShiftWord);
  this.unShiftWord=[];
- this.pressControl=0;
+ this.user.pressControl=0;
+ console.log(this.user.pressControl);
  this.user.selectMessagesArray=[];
  this.user.selectTextArray=[];
  this.user.selectFrom=[];
