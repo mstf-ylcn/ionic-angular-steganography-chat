@@ -24,7 +24,7 @@ export class userService {
   photo3;
   messages=[];
   theme="light";
-
+ pressControl=0;
   newPp;
 
 
